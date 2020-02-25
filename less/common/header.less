@@ -1,0 +1,108 @@
+.header{
+    .menu-header{
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 10px;
+        z-index: 500;
+        ul{
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            li{
+                position: relative;
+                a{
+                    padding: 30px;
+                    color: white;
+                    font-family: @main-font-2;
+                    &:hover{
+                        text-decoration: none;
+                        background-color: rgba(255, 255, 255, 0.25);
+                    }
+                }          
+            }
+            > li{
+
+                //PARA SUMIR COM O MENU PRINCIPAL QUANDO FOR MOBILE
+                @media (max-width: @screen-md-min){
+                    display: none;
+
+                    &:nth-child(3){
+                        //DEIXAR APENAS O LOGO VISIVEL NO MOBILE
+                        display: block;
+                    }
+                }
+
+                &:hover{
+                    ul{
+                        opacity: 1;
+                        visibility: visible;
+                        transition: 0.4s;
+                    }                   
+                }
+            }
+        }
+
+        .brand{
+            img{
+                min-width: 50px;
+            }
+            &:hover{
+                text-decoration: none;
+                background-color: transparent;
+            }
+        }
+
+        .chooseAPlanet{
+            position: absolute;
+            top: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            li{
+                padding: 10px;
+                width: 100%;
+               
+                a{
+                    padding: 0;
+                    
+                    &:before{
+                        content: '\f10c';
+                        font-family: "FontAwesome";
+                        display: inline-flex;
+                        font-size: 10px;
+                        padding-right: 5px;
+                        opacity: 0;
+                        transition: 0.2s;
+
+                    }
+                    
+                    &:hover{
+                        background: none;                        
+                    }
+                }
+
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.25);
+                    li &{
+                        background-color: red;
+                    }
+                    a:before{
+                        opacity: 1;
+                        margin-left: 10px;
+                        transition: 0.4s;                        
+                    }
+                }                
+            }
+            li:first-child{
+                border-top: 1px solid white;
+            }
+        }
+    }
+}
